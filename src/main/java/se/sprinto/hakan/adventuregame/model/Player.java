@@ -5,8 +5,11 @@ public class Player extends AbstractCharacter {
     private boolean defeatedEnemy;
     private boolean openedChest;
 
-    public Player(String name, int health, int score, int strength) {
-        super(name, health, score, strength);
+    private Player(Builder builder) /*bytt ut parametrarna mot buildern */ {
+        super(builder.name, builder.health, builder.score, builder.strength); /* lagt till builder framför  */
+        this.foundKey = builder.foundKey;
+        this.defeatedEnemy = builder.defeatedEnemy;
+        this.openedChest = builder.openedChest;
     }
 
     public boolean hasFoundKey() {
@@ -20,7 +23,6 @@ public class Player extends AbstractCharacter {
     public boolean hasDefeatedEnemy() {
         return defeatedEnemy;
     }
-
 
     public void setDefeatedEnemy(boolean defeatedEnemy) {
         this.defeatedEnemy = defeatedEnemy;
@@ -45,5 +47,55 @@ public class Player extends AbstractCharacter {
         if (!target.isAlive()) {
             addScore(50);
         }
+    }
+    //Lagt till builder för Player nedan
+        public static class Builder {
+        private String name;
+        private int health;
+        private int score;
+        private int strength;
+        private boolean foundKey;
+        private boolean defeatedEnemy;
+        private boolean openedChest;
+
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder health(int health) {
+            this.health = health;
+            return this;
+        }
+
+        public Builder score(int score) {
+            this.score = score;
+            return this;
+        }
+
+        public Builder strength(int strength) {
+            this.strength = strength;
+            return this;
+        }
+
+        public Builder foundKey(boolean foundKey) {
+            this.foundKey = foundKey;
+            return this;
+        }
+
+        public Builder defeatedEnemy(boolean defeatedEnemy) {
+            this.defeatedEnemy = defeatedEnemy;
+            return this;
+        }
+
+        public Builder openedChest(boolean openedChest) {
+            this.openedChest = openedChest;
+            return this;
+        }
+
+        public Player build() {
+            return new Player(this);
+        }
+
     }
 }

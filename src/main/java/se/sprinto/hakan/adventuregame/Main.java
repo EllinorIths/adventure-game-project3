@@ -14,9 +14,19 @@ public class Main {
     public static void main(String[] args) {
         UI ui = new ScannerUI();
         ui.showMessage("Välkommen till Äventyrsspelet!");
-        ui.showMessage("Version 1.0 av Håkan Gleissman");
+        //Ändrat nedan så meddelandena visar uppdaterad version och författare från properties-filen
+        ui.showMessage("Version: " + AppInfo.getInstance().getProperty("app.version"));
+        ui.showMessage("Författare: " + AppInfo.getInstance().getProperty("app.author"));
         String name = ui.getInput("Ange ditt namn:");
-        Player player = new Player(name, 100, 0, 10);
+        Player player = new Player.Builder() //Ändrat konstruktorn till builder pattern
+                .name(name)
+                .health(100)
+                .score(0)
+                .strength(10)
+                .foundKey(false)
+                .defeatedEnemy(false)
+                .openedChest(false)
+                .build();
 
         new StartRoom().enterRoom(player, ui);
 
