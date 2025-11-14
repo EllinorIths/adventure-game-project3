@@ -11,9 +11,12 @@ public class TreasureRoom implements Room {
         String choice = ui.getInput("Vill du försöka öppna kistan? (ja/nej)");
         if (choice.equalsIgnoreCase("ja")) {
             if (player.hasFoundKey()) {
-                ui.showMessage("Du öppnar kistan med din nyckel!");
                 player.setOpenedChest(true);
+                player.addStrength(10);
                 player.addScore(100);
+                ui.showMessage("Du öppnar kistan med din nyckel! Den innehöll ett nytt svärd! " +
+                        "Din styrka ökar! Din styrka: " + player.getStrength());
+
             } else {
                 ui.showMessage("Kistan är låst, du saknar nyckeln...");
             }

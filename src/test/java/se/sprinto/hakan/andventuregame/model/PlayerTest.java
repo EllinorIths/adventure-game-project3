@@ -16,16 +16,13 @@ public class PlayerTest {
                 .health(100)
                 .score(0)
                 .strength(10)
-                .foundKey(false)
-                .defeatedEnemy(false)
-                .openedChest(false)
                 .build();
 
-        Enemy enemy = new Enemy("Vätte", 20, 0, 5 );
+        Enemy goblin = new Enemy("Vätte", 20, 0, 5 );
 
-        player.attack(enemy);
+        player.attack(goblin);
 
-        assertEquals(10, enemy.getHealth());
+        assertEquals(10, goblin.getHealth());
 
 
     }

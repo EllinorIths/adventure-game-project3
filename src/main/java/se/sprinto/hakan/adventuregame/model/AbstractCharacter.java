@@ -30,6 +30,8 @@ public abstract class AbstractCharacter {
         }
     }
 
+    public void addHealth(int amount) {this.health += amount; }
+
     public int getScore() {
         return score;
     }
@@ -45,6 +47,8 @@ public abstract class AbstractCharacter {
     public void setStrength(int strength) {
         this.strength = strength;
     }
+
+    public void addStrength(int amount) {this.strength += amount; }
 
     public boolean isAlive() {
         return health > 0;

@@ -19,7 +19,8 @@ public class DungeonRoom implements Room {
                     ui.showMessage("Vätten attackerar dig! Ditt HP: " + player.getHealth());
                 } else {
                     ui.showMessage("Du besegrade vätten!");
-                    player.setDefeatedEnemy(true);
+                    player.setDefeatedGoblin(true);
+                    player.addScore(20);
                 }
             } else if (choice.equalsIgnoreCase("r")) {
                 ui.showMessage("Du springer därifrån!");

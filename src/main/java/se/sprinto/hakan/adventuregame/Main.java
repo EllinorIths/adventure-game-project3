@@ -24,8 +24,10 @@ public class Main {
                 .score(0)
                 .strength(10)
                 .foundKey(false)
-                .defeatedEnemy(false)
+                .defeatedGoblin(false)
+                .defeatedBook(false)
                 .openedChest(false)
+                .defeatedTroll(false)
                 .build();
 
         new StartRoom().enterRoom(player, ui);

@@ -19,8 +19,6 @@ public class TreasureRoomTest {
                 .score(0)
                 .strength(10)
                 .foundKey(true) //satt till true för att förutsätta att spelaren har nyckeln
-                .defeatedEnemy(false)
-                .openedChest(false)
                 .build();
 
         FakeUI fakeUI = new FakeUI();

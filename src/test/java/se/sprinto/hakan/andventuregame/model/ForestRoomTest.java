@@ -20,9 +20,6 @@ public class ForestRoomTest {
                 .health(100)
                 .score(0)
                 .strength(10)
-                .foundKey(false)
-                .defeatedEnemy(false)
-                .openedChest(false)
                 .build();
 
         FakeUI fakeUI = new FakeUI();
